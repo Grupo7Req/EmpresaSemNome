@@ -1,15 +1,20 @@
 <% @topics.each do |t| %>
-  <%= t.description %>
-  <% if t.accepted %> <!--APROVADO-->
-    <%= link_to "Aprovado", '#', class: 'btn btn-success' %>
-  <% else %> <!--REPROVADO-->
-    <% if t.accepted == false %>
-      <%= link_to "Recusado", '#', class: 'btn btn-danger' %>
-    <% else %> <!--NULL-->
+  <h2>
+    <%= t.description %>
+    <br><br>
+    <% if t.accepted %> <!--APROVADO-->
       <%= link_to "Aprovado", '#', class: 'btn btn-success' %>
-      <%= link_to "Recusado", '#', class: 'btn btn-danger' %>
+    <% else %> <!--REPROVADO-->
+      <% if t.accepted == false %>
+        <%= link_to "Recusado", '#', class: 'btn btn-danger' %>
+      <% else %> <!--NULL-->
+        <%= link_to "Aprovado", '#', class: 'btn btn-success' %>
+        <%= link_to "Recusado", '#', class: 'btn btn-danger' %>
+      <% end %>
     <% end %>
-  <% end %>
+    <br><br>
+    <%= link_to "Excluir", t, method: :delete , class: 'btn btn-default' %>
+  </h2>
 <% end %>
 
 <%= form_for @topic do |f| -%>
