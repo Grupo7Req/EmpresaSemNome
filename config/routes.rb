@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :proposals
 
   get 'send_topic' => 'topics#send_topic'
+  get 'validate_topic' => 'demands#validate_topic'
+  get 'approve_topic' => 'demands#approve_topic'
+  get 'validated_topics' => 'demands#validated_topics'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
