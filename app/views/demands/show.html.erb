@@ -4,13 +4,22 @@
 
 <% @topics.each do |t| %>
   <div class="demand_index container">
-    <h2>
-      <%= t.description %>
-      <br>
-      <%= t.category %>
-      <br>
-      <%= t.notes %>
-    </h2>
+    <br>
+    <center>
+      <h4>
+        <b><%= t.description %></b>
+        <br><br>
+      </h4>
+      <h2>
+        <u>Categoria:</u>
+        <br>
+        <%= t.category %>
+        <br><br>
+        <u>Observação:</u>
+        <br>
+        <%= t.notes %>
+      </h2>
+    </center>
     <br>
     <% if ! t.sent %>
       <center>
@@ -33,3 +42,5 @@
 <center>
 <%= link_to "Novo Tópico", new_topic_for_demand_path(id: @demand.id) , class: 'btn btn-success' %>
 </center>
+<br>
+<br>
