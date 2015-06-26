@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  root 'esn#index'
+
+  resources :demands
+  resources :topics
+  resources :proposals
+
+  get 'send_topic' => 'topics#send_topic'
+  get 'validate_topic' => 'demands#validate_topic'
+  get 'approve_topic' => 'demands#approve_topic'
+  get 'validated_topics' => 'demands#validated_topics'
+  get 'excluir_demand' => 'demands#excluir_demand'
+  get 'new_topic_for_demand' => 'demands#new_topic_for_demand'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
