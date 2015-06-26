@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'validate_topic' => 'demands#validate_topic'
   get 'approve_topic' => 'demands#approve_topic'
   get 'validated_topics' => 'demands#validated_topics'
+  get 'excluir_demand' => 'demands#excluir_demand'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
