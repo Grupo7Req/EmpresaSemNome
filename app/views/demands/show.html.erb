@@ -1,35 +1,42 @@
-<h1>Tópicos</h1>
+<h1>
+  Tópicos
+</h1>
+
 <% @topics.each do |t| %>
   <div class="demand_index container">
     <h2>
       <%= t.description %>
       <br><br>
-      <% if !t.sent %>
+
+      <% if ! t.sent %>
         <%= link_to "Enviar", send_topic_path(sent: true, topic_id: t.id) , class: 'btn btn-success' %>
         <%= link_to "Excluir", t, method: :delete , class: 'btn btn-danger' %>
+      <% elsif t.accepted %>
+        <h2>
+          Tópico Aprovado!
+        </h2>
       <% else %>
         <h2>
           Aguardando Resposta da Equipe de Marketing
         </h2>
-
       <% end %>
-      <br><br>
-      
+      <br>
+      <br>
     </h2>
   </div>>
 <% end %>
 
 <%= form_for @topic do |f| -%>
   <h2>
-    <%= f.label :description, "Description" %>
+    <%= f.label :description, "Descrição" %>
     <br>
     <%= f.text_field :description %>
     <br><br>
-    <%= f.label :category, "Category" %>
+    <%= f.label :category, "Categoria" %>
     <br>
     <%= f.text_field :category %>
     <br><br>
-    <%= f.label :notes, "Notes" %>
+    <%= f.label :notes, "Observações" %>
     <br>
     <%= f.text_area :notes %>
     <br><br>
