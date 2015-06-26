@@ -49,6 +49,11 @@ class DemandsController < ApplicationController
     redirect_to @demand
   end
 
+  def new_topic_for_demand
+    @demand = Demand.find(params[:id])
+    @topic = @demand.topics.build
+  end
+
   private
 
   def demand_params
