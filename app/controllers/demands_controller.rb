@@ -43,8 +43,10 @@ class DemandsController < ApplicationController
     @topics = @demand.topics.where(:accepted => true)
   end
 
-  def new_topic
-    
+  def excluir_demand
+    @demand = Demand.find(params[:demand_id])
+    @demand.destroy
+    redirect_to @demand
   end
 
   private

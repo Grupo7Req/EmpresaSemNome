@@ -1,4 +1,5 @@
 <center>
+  <h1>Demandas</h1>
   <% @demands.each do |d| %>
     <div class="demand_index container">
       <h2><%= d.name %></h2>
@@ -6,6 +7,8 @@
          <%= link_to 'Gerenciar tópicos', d, class: "btn btn-primary" %>
          <%= link_to 'Validar tópicos', validate_topic_path(:demand_id => d.id), class: "btn btn-primary" %>
          <%= link_to 'Tópicos Validados', validated_topics_path(:demand_id => d.id), class: "btn btn-primary" %>
+         <br><br>
+         <%= link_to 'Exluir Demanda', excluir_demand_path(:demand_id => d.id), class: "btn btn-danger", data: { confirm: "Você tem certeza que deseja deletar essa demanda?"} %>
       <br><br>
     </div><br>
   <% end %>

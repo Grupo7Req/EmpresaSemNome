@@ -2,9 +2,14 @@
   <h2>
     <%= t.description %>
     <br><br>
-    <% unless t.sent %>
+    <% if !t.sent %>
       <%= link_to "Enviar", send_topic_path(sent: true, topic_id: t.id) , class: 'btn btn-success' %>
       <%= link_to "Excluir", t, method: :delete , class: 'btn btn-danger' %>
+    <% else %>
+      <h2>
+        Aguardando Resposta da equipe de marketing
+      </h2>
+
     <% end %>
     <br><br>
     
