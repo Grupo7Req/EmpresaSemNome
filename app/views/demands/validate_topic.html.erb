@@ -4,25 +4,25 @@
 
 <% @topics.each do |t| %>
 
-
 	<% if t.accepted %> <!--APROVADO-->
 	     
 	<% else %> <!--REPROVADO-->
-	<h2>
-	<%= t.description %>
-	</h2>
-	<h3>
-		<center>
-		<%= link_to "Aprovar", approve_topic_path(:topic_id => t.id, :accepted => true), class: 'btn btn-success' %>
-	      <% if t.accepted == false || t.accepted == nil %>
-	        <%= link_to "Recusar", approve_topic_path(:topic_id => t.id, :accepted => false, :sent => false), class: 'btn btn-danger' %>
-	      <% else %> <!--NULL-->
-	        <%= link_to "Recusar", '#', class: 'btn btn-danger' %>
-	      <% end %>
-	   	<% end -%>
-	   	</h3>
-	   	</center>
-	<h1>
-
-	</h1>
+		<h2>
+	      <%= t.description %>
+	      <br>
+	      <%= t.category %>
+	      <br>
+	      <%= t.notes %>
+		</h2>
+		<h3>
+			<center>
+				<%= link_to "Aprovar", approve_topic_path(:topic_id => t.id, :accepted => true), class: 'btn btn-success' %>
+				<% if t.accepted == false || t.accepted == nil %>
+				<%= link_to "Recusar", approve_topic_path(:topic_id => t.id, :accepted => false, :sent => false), class: 'btn btn-danger' %>
+				<% else %> <!--NULL-->
+				<%= link_to "Recusar", '#', class: 'btn btn-danger' %>
+				<% end %>
+			</center>
+		</h3>
+   	<% end %>
  <% end %>
