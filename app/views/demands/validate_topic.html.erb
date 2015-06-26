@@ -8,8 +8,8 @@
 	      </h1>	
 	<% else %> <!--REPROVADO-->
 		<%= link_to "Aprovado", approve_topic_path(:topic_id => t.id, :accepted => true), class: 'btn btn-success' %>
-	      <% if t.accepted == false %>
-	        <%= link_to "Recusado", approve_topic_path(:topic_id => t.id, :accepted => false), class: 'btn btn-danger' %>
+	      <% if t.accepted == false || t.accepted == nil %>
+	        <%= link_to "Recusado", approve_topic_path(:topic_id => t.id, :accepted => false, :sent => false), class: 'btn btn-danger' %>
 	      <% else %> <!--NULL-->
 	        <%= link_to "Recusado", '#', class: 'btn btn-danger' %>
 	      <% end %>
