@@ -6,24 +6,29 @@
   <div class="demand_index container">
     <h2>
       <%= t.description %>
-      <br><br>
-
-      <% if ! t.sent %>
+      <br>
+      <%= t.category %>
+      <br>
+      <%= t.notes %>
+    </h2>
+    <br>
+    <% if ! t.sent %>
+      <center>
         <%= link_to "Enviar", send_topic_path(sent: true, topic_id: t.id) , class: 'btn btn-success' %>
         <%= link_to "Excluir", t, method: :delete , class: 'btn btn-danger' %>
-      <% elsif t.accepted %>
-        <h2>
-          Tópico Aprovado!
-        </h2>
-      <% else %>
-        <h2>
-          Aguardando Resposta da Equipe de Marketing
-        </h2>
-      <% end %>
-      <br>
-      <br>
-    </h2>
-  </div>>
+      </center>
+    <% elsif t.accepted %>
+      <h2>
+        <font color="green">Tópico Aprovado!</font>
+      </h2>
+    <% else %>
+      <h2>
+        <font color="blue">Aguardando Resposta da Equipe de Marketing</font>
+      </h2>
+    <% end %>
+    <br>
+  </div>
+  <br>
 <% end %>
 
 <%= form_for @topic do |f| -%>
