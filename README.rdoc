@@ -1,28 +1,45 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+== Installing RVM
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+if curl is not set, run
+
+* sudo apt-get install curl
+
+* \curl -sSL https://get.rvm.io | bash -s stable
+
+source /home/<pc-name>/.rvm/scripts/rvm   (example: <tt>source /home/omar/.rvm/scripts/rvm</tt>)
+
+
+To see which versions are installed on PC, run:
+
+* rvm list
+
+
+To install ruby-2.2.0, run:
+
+* rvm install 2.2.0
+
+
+To use a version, run:
+
+* rvm use 2.2.0
+
+
+To see which Ruby version is being using at the moment, run:
+
+* ruby -v
+
+
+To install Rails 4.2.0, run:
+
+gem install rails -v '4.2.0'
+
+
+To run the server:
+
+* rails s
