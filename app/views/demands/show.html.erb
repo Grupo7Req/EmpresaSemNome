@@ -2,16 +2,6 @@
   <h2>
     <%= t.description %>
     <br><br>
-    <%# if t.accepted %> <!--APROVADO-->
-      <%#= link_to "Aprovado", '#', class: 'btn btn-success' %>
-    <%# else %> <!--REPROVADO-->
-      <%# if t.accepted == false %>
-        <%#= link_to "Recusado", '#', class: 'btn btn-danger' %>
-      <%# else %> <!--NULL-->
-        <%#= link_to "Aprovado", '#', class: 'btn btn-success' %>
-        <%#= link_to "Recusado", '#', class: 'btn btn-danger' %>
-      <%# end %>
-    <%# end %>
     <% unless t.sent %>
       <%= link_to "Enviar", send_topic_path(sent: true, topic_id: t.id) , class: 'btn btn-default' %>
       <%= link_to "Excluir", t, method: :delete , class: 'btn btn-default' %>

@@ -4,7 +4,8 @@
       <h2><%= d.name %></h2>
       <h2><%= d.description %></h2>
          <%= link_to 'Gerenciar tópicos', d, class: "btn btn-primary" %>
-         <%= link_to 'Validar tópicos', d, class: "btn btn-primary" %>
+         <%= link_to 'Validar tópicos', validate_topic_path(:demand_id => d.id), class: "btn btn-primary" %>
+         <%= link_to 'Tópicos Validados', validated_topics_path(:demand_id => d.id), class: "btn btn-primary" %>
       <br><br>
     </div><br>
   <% end %>
