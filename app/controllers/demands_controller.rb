@@ -11,7 +11,7 @@ class DemandsController < ApplicationController
   def create
     demand = Demand.new(demand_params)
     if demand.save
-      redirect_to demand
+      redirect_to '/demands'
     else
       render 'new'
     end
