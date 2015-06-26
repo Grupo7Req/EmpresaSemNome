@@ -11,11 +11,18 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:id])
+    @demand = @topic.demand
     Topic.find(params[:id]).destroy
     flash[:success] = "User deleted"
-    redirect_to demands_path
+    redirect_to @demand
   end
-
+  def send_topic
+    @topic = Topic.find(params[:topic_id])
+    @topic.sent = params[:sent]
+    @topic.save
+    redirect_to @topic.demand
+  end
   private
 
   def topic_params
