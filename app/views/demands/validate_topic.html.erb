@@ -2,37 +2,45 @@
 	Tópicos para Validar
 </h1>
 
-<% @topics.each do |t| %>
+<% if @topics.count > 0 %>
 
-	<% if t.accepted %> <!--APROVADO-->
-	     
-	<% else %> <!--REPROVADO-->
-		<div class="demand_index container">
-		    <br>
-		    <center>
-		      	<h4>
-			        <b><%= t.description %></b>
-			        <br><br>
-		      	</h4>
-		      	<h2>
-			        <u>Categoria:</u>
-			        <br>
-			        <%= t.category %>
-			        <br><br>
-			        <u>Observação:</u>
-			        <br>
-			        <%= t.notes %>
-		      	</h2>
-		    	<br>
-				<%= link_to "Aprovar", approve_topic_path(:topic_id => t.id, :accepted => true), class: 'btn btn-success' %>
-				<% if t.accepted == false || t.accepted == nil %>
-					<%= link_to "Recusar", approve_topic_path(:topic_id => t.id, :accepted => false, :sent => false), class: 'btn btn-danger', data: { confirm: "Deseja confirmar invalidação do tópico?"} %>
-				<% else %> <!--NULL-->
-					<%= link_to "Recusar", '#', class: 'btn btn-danger', data: { confirm: "Deseja confirmar invalidação do tópico?"} %>
-				<% end %>
-			</center>
-    		<br>
-  		</div>
-  		<br>
-   	<% end %>
- <% end %>
+	<% @topics.each do |t| %>
+
+		<% if t.accepted %> <!--APROVADO-->
+		     
+		<% else %> <!--REPROVADO-->
+			<div class="demand_index container">
+			    <br>
+			    <center>
+			      	<h4>
+				        <b><%= t.description %></b>
+				        <br><br>
+			      	</h4>
+			      	<h2>
+				        <u>Categoria:</u>
+				        <br>
+				        <%= t.category %>
+				        <br><br>
+				        <u>Observação:</u>
+				        <br>
+				        <%= t.notes %>
+			      	</h2>
+			    	<br>
+					<%= link_to "Aprovar", approve_topic_path(:topic_id => t.id, :accepted => true), class: 'btn btn-success' %>
+					<% if t.accepted == false || t.accepted == nil %>
+						<%= link_to "Recusar", approve_topic_path(:topic_id => t.id, :accepted => false, :sent => false), class: 'btn btn-danger', data: { confirm: "Deseja confirmar invalidação do tópico?"} %>
+					<% else %> <!--NULL-->
+						<%= link_to "Recusar", '#', class: 'btn btn-danger', data: { confirm: "Deseja confirmar invalidação do tópico?"} %>
+					<% end %>
+				</center>
+	    		<br>
+	  		</div>
+	  		<br>
+	   	<% end %>
+	<% end %>
+
+<% else %>
+
+	<h2>Todos os tópicos já foram validados!</h2>
+
+<% end %>
