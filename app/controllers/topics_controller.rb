@@ -1,13 +1,19 @@
 class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
-    @demand = Demand.find(params[:demand_id])
-    @topic.demand = @demand
-    if @topic.save
-      redirect_to @topic.demand
-    else
-      redirect_to demands_path
-    end
+
+    #if @topic.description = ""
+    #  flass[:error] = "Somethig is wrong"
+    #  redirect_to 
+    #else
+      @demand = Demand.find(params[:demand_id])
+      @topic.demand = @demand
+      if @topic.save
+        redirect_to @topic.demand
+      else
+        redirect_to demands_path
+      end
+    #end
   end
 
   def destroy
