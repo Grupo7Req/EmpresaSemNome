@@ -26,12 +26,13 @@
 		    	<br>
 				<%= link_to "Aprovar", approve_topic_path(:topic_id => t.id, :accepted => true), class: 'btn btn-success' %>
 				<% if t.accepted == false || t.accepted == nil %>
-					<%= link_to "Recusar", approve_topic_path(:topic_id => t.id, :accepted => false, :sent => false), class: 'btn btn-danger' %>
+					<%= link_to "Recusar", approve_topic_path(:topic_id => t.id, :accepted => false, :sent => false), class: 'btn btn-danger', data: { confirm: "Deseja confirmar invalidação do tópico?"} %>
 				<% else %> <!--NULL-->
-					<%= link_to "Recusar", '#', class: 'btn btn-danger' %>
+					<%= link_to "Recusar", '#', class: 'btn btn-danger', data: { confirm: "Deseja confirmar invalidação do tópico?"} %>
 				<% end %>
 			</center>
     		<br>
   		</div>
+  		<br>
    	<% end %>
  <% end %>
