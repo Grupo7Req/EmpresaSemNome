@@ -13,7 +13,8 @@ class DemandsController < ApplicationController
     if demand.save
       redirect_to '/demands'
     else
-      render 'new'
+      flash[:error] = "Topic not created"
+      redirect_to demand
     end
   end
 

@@ -2,25 +2,22 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
 
-    #if @topic.description = ""
-    #  flass[:error] = "Somethig is wrong"
-    #  redirect_to 
-    #else
-      @demand = Demand.find(params[:demand_id])
-      @topic.demand = @demand
-      if @topic.save
-        redirect_to @topic.demand
-      else
-        redirect_to demands_path
-      end
-    #end
+    @demand = Demand.find(params[:demand_id])
+    @topic.demand = @demand
+    if @topic.save
+      flash[:success] = "Topic created"
+      redirect_to @topic.demand
+    else
+      flash[:error] = "Topic not created"
+      redirect_to @topic.demand
+    end
   end
 
   def destroy
     @topic = Topic.find(params[:id])
     @demand = @topic.demand
     Topic.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Topic deleted"
     redirect_to @demand
   end
   def send_topic
